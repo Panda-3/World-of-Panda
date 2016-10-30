@@ -1,6 +1,6 @@
 --colours
 white = Color.new(255,255,255)
-IP, port = Network.initFTP()
+ip, port = Network.initFTP()
 --Font/BG
 robotofont = Font.load("app0:/Roboto.ttf")
 BG = Graphics.loadImage("app0:/BG.png")
@@ -51,7 +51,7 @@ y=y+q
       y=y+q
       Font.print(robotofont,x ,y, "STOP U MAKE ME LAUGH", white)
       y=y+q
-  		Font.print(robotofont,x ,y, "FTP STARTED ON " .. IP ":" .. port , white)
+  		Font.print(robotofont,x ,y, "FTP STARTED ON " .. ip .. ":" .. port, white)
       y=y+q
   		end
 
