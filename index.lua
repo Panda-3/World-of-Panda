@@ -7,6 +7,7 @@ BG = Graphics.loadImage("app0:/BG.png")
 --text location
 x=5
 q=15
+on=0
 --------------------------------------------------- functions
  function ScreenDraw ()
 	Graphics.drawImage(0,0,BG)
@@ -36,6 +37,8 @@ Font.print(robotofont,x , y, "He is comming SAVE ME!!!", white)
 y=y+q
 
 	if Controls.check(Controls.read(), SCE_CTRL_START) then
+    Network.termFTP()
+    System.wait(800000)
 		System.exit()
 	end
 	if Controls.check(Controls.read(), SCE_CTRL_CROSS) then
@@ -46,15 +49,17 @@ y=y+q
 		end
 
     if Controls.check(Controls.read(), SCE_CTRL_SQUARE) then
-      Network.termFTP()
+      on=1
       Font.print(robotofont,x ,y, "I said it tickles why", white)
       y=y+q
       Font.print(robotofont,x ,y, "STOP U MAKE ME LAUGH", white)
       y=y+q
-  		Font.print(robotofont,x ,y, "FTP STARTED ON " .. ip .. ":" .. port, white)
-      y=y+q
   		end
 
+      if on==1 then
+        Font.print(robotofont,x ,y, "FTP STARTED ON " .. ip .. ":" .. port, white)
+        y=y+q
+      end
     Graphics.termBlend()
     Screen.flip()
 end
