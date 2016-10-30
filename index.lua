@@ -17,7 +17,6 @@ end
 
 while true do
 y=45
-colour = Colur.new(math.random(255, 0),math.random(255, 0),math.random(255, 0))
 
 ---------------------------------------- Main
 Graphics.initBlend()
@@ -26,8 +25,6 @@ ScreenDraw()
 Font.print(fontb, x, y, tostring(System.getBatteryPercentage()) .. "% Battery gonna BLOWWWW", white)
 y=y+q
 Font.print(fontb, x, y, tostring(System.getCpuSpeed()) .. "MHZ SPEEEEEED", white)
-y=y+q
-Font.print(fontb,x , y, "ABCDEFGHIJKLMNOPQRSTUVWQYZ", colour)
 y=y+q
 Font.print(fontb,x , y, "PRESS X to make magic happen Pls DONT! do it save me from Panda", white)
 y=y+q
