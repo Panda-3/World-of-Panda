@@ -1,6 +1,6 @@
 --colours
 white = Color.new(255,255,255)
-
+IP, port = Network.initFTP()
 --Font/BG
 robotofont = Font.load("app0:/Roboto.ttf")
 BG = Graphics.loadImage("app0:/BG.png")
@@ -28,10 +28,13 @@ Font.print(robotofont, x, y, tostring(System.getCpuSpeed()) .. "MHZ SPEEEEEED", 
 y=y+q
 Font.print(robotofont,x , y, "PRESS X to make magic happen Pls DONT! do it save me from Panda", white)
 y=y+q
+Font.print(robotofont,x , y, "PRESS SQUARE FOR SUPER PANDA DRIVE!!!!!!!! BTW it also tickles", white)
+y=y+q
 Font.print(robotofont,x , y, "dont do it save me from Panda", white)
 y=y+q
 Font.print(robotofont,x , y, "He is comming SAVE ME!!!", white)
 y=y+q
+
 	if Controls.check(Controls.read(), SCE_CTRL_START) then
 		System.exit()
 	end
@@ -43,7 +46,7 @@ y=y+q
 		end
 
     if Controls.check(Controls.read(), SCE_CTRL_SQUARE) then
-      IP, port = Network.initFTP()
+      Network.termFTP()
       Font.print(robotofont,x ,y, "I said it tickles why", white)
       y=y+q
       Font.print(robotofont,x ,y, "STOP U MAKE ME LAUGH", white)
