@@ -42,6 +42,16 @@ y=y+q
     y=y+q
 		end
 
+    if Controls.check(Controls.read(), SCE_CTRL_SQUARE) then
+      IP, port = Network.initFTP()
+      Font.print(robotofont,x ,y, "I said it tickles why", white)
+      y=y+q
+      Font.print(robotofont,x ,y, "STOP U MAKE ME LAUGH", white)
+      y=y+q
+  		Font.print(robotofont,x ,y, "FTP STARTED ON " .. IP ":" .. port , white)
+      y=y+q
+  		end
+
     Graphics.termBlend()
     Screen.flip()
 end
