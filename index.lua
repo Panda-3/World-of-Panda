@@ -38,7 +38,7 @@ y=y+q
 
 	if Controls.check(Controls.read(), SCE_CTRL_START) then
     Network.termFTP()
-    System.wait(800000)
+    System.wait(10000)
 		System.exit()
 	end
 	if Controls.check(Controls.read(), SCE_CTRL_CROSS) then
