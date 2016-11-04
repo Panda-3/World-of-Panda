@@ -1,28 +1,21 @@
---colours
+-- Stuff
 white = Color.new(255,255,255)
 ip, port = Network.initFTP()
---Font/BG
 robotofont = Font.load("app0:/Roboto.ttf")
 BG = Graphics.loadImage("app0:/BG.png")
---text location
 x=5
 q=15
 on=0
---------------------------------------------------- functions
- function ScreenDraw ()
-	Graphics.drawImage(0,0,BG)
-	Font.setPixelSizes(robotofont,35)
-	Font.print(robotofont, 480, 5, "World of Panda", Color.new(64,64,64))
-	Font.setPixelSizes(robotofont,18)
-end
 
+---------------------------------------- Main LOOP
 while true do
 y=45
 
----------------------------------------- Main
 Graphics.initBlend()
-ScreenDraw()
-
+Graphics.drawImage(0,0,BG)
+Font.setPixelSizes(robotofont,35)
+Font.print(robotofont, 480, 5, "World of Panda", Color.new(64,64,64))
+Font.setPixelSizes(robotofont,18)
 Font.print(robotofont, x, y, tostring(System.getBatteryPercentage()) .. "% Battery gonna BLOWWWW", white)
 y=y+q
 Font.print(robotofont, x, y, tostring(System.getCpuSpeed()) .. "MHZ SPEEEEEED", white)
@@ -38,7 +31,7 @@ y=y+q
 
 	if Controls.check(Controls.read(), SCE_CTRL_START) then
     Network.termFTP()
-    System.wait(800000)
+    System.wait(10000)
 		System.exit()
 	end
 	if Controls.check(Controls.read(), SCE_CTRL_CROSS) then
@@ -63,3 +56,4 @@ y=y+q
     Graphics.termBlend()
     Screen.flip()
 end
+------------------------------------end
