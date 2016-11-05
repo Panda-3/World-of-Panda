@@ -1,6 +1,7 @@
 -- Stuff
 white = Color.new(255,255,255)
 BG = image.loadfromdata("app0:/BG.png",0)
+SU = image.loadfromdata("app0:/SU.png",0)
 x=5
 q=15
 on=0
@@ -10,8 +11,8 @@ while true do
 buttons.read()
 y=45
 
-splash.show(BG)
-os.delay(20000)
+splash.show(SU)
+os.delay(2000)
 image.load(BG,0,0)
 screen.print(480, 5, "World of Panda", Color.new(64,64,64))
 screen.print(x, y, tostring(batt.lifepercent()) .. "% Battery gonna BLOWWWW", 20 ,white)
@@ -44,7 +45,7 @@ y=y+q
       y=y+q
       screen.print(x ,y, "STOP U MAKE ME LAUGH",, white)
       y=y+q
-			ftp.init ()
+			ftp.init()
   		end
 
       if ftp.state()== true then

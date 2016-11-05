@@ -1,3 +1,3 @@
 # World-of-Panda
 
-This is just my random project dont expect anything from it
+This is just my random project don't expect anything from it
