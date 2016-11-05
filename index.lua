@@ -1,59 +1,57 @@
 -- Stuff
 white = Color.new(255,255,255)
-ip, port = Network.initFTP()
-robotofont = Font.load("app0:/Roboto.ttf")
-BG = Graphics.loadImage("app0:/BG.png")
+BG = image.loadfromdata("app0:/BG.png",0)
 x=5
 q=15
 on=0
-
+font.setdefault("app0:/Roboto.ttf")
 ---------------------------------------- Main LOOP
 while true do
+buttons.read()
 y=45
 
-Graphics.initBlend()
-Graphics.drawImage(0,0,BG)
-Font.setPixelSizes(robotofont,35)
-Font.print(robotofont, 480, 5, "World of Panda", Color.new(64,64,64))
-Font.setPixelSizes(robotofont,18)
-Font.print(robotofont, x, y, tostring(System.getBatteryPercentage()) .. "% Battery gonna BLOWWWW", white)
+splash.show(BG)
+os.delay(20000)
+image.load(BG,0,0)
+screen.print(480, 5, "World of Panda", Color.new(64,64,64))
+screen.print(x, y, tostring(batt.lifepercent()) .. "% Battery gonna BLOWWWW", 20 ,white)
 y=y+q
-Font.print(robotofont, x, y, tostring(System.getCpuSpeed()) .. "MHZ SPEEEEEED", white)
+screen.print(x, y, tostring(System.getCpuSpeed()) .. "MHZ SPEEEEEED",, white)
 y=y+q
-Font.print(robotofont,x , y, "PRESS X to make magic happen Pls DONT! do it save me from Panda", white)
+screen.print(x , y, "PRESS X to make magic happen Pls DONT! do it save me from Panda",, white)
 y=y+q
-Font.print(robotofont,x , y, "PRESS SQUARE FOR SUPER PANDA DRIVE!!!!!!!! BTW it also tickles", white)
+screen.print(x , y, "PRESS SQUARE FOR SUPER PANDA DRIVE!!!!!!!! BTW it also tickles",,white)
 y=y+q
-Font.print(robotofont,x , y, "dont do it save me from Panda", white)
+screen.print(x , y, "dont do it save me from Panda",, white)
 y=y+q
-Font.print(robotofont,x , y, "He is comming SAVE ME!!!", white)
+screen.print(x , y, "He is comming SAVE ME!!!",, white)
 y=y+q
 
-	if Controls.check(Controls.read(), SCE_CTRL_START) then
-    Network.termFTP()
-    System.wait(10000)
-		System.exit()
+	if buttons.start then
+    ftp.term()
+    os.delay(10000)
+		os.exit()
 	end
-	if Controls.check(Controls.read(), SCE_CTRL_CROSS) then
-    Font.print(robotofont,x ,y, "I said dont WHYYYYYYYYYYYYYYYYYYYYYYYYYYYYY", white)
+	if buttons.cross then
+    screen.print(x ,y, "I said dont WHYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",, white)
     y=y+q
-		Font.print(robotofont,x ,y, tostring(System.getUsername()), white)
+		screen.print(x ,y, tostring(System.getUsername()),, white)
     y=y+q
 		end
 
-    if Controls.check(Controls.read(), SCE_CTRL_SQUARE) then
-      on=1
-      Font.print(robotofont,x ,y, "I said it tickles why", white)
+    if buttons.square and ftp.state()== false then
+      screen.print(x ,y, "I said it tickles why",, white)
       y=y+q
-      Font.print(robotofont,x ,y, "STOP U MAKE ME LAUGH", white)
+      screen.print(x ,y, "STOP U MAKE ME LAUGH",, white)
       y=y+q
+			ftp.init ()
   		end
 
-      if on==1 then
-        Font.print(robotofont,x ,y, "FTP STARTED ON " .. ip .. ":" .. port, white)
+      if ftp.state()== true then
+        screen.print(x ,y, "JESUSUSUSUSUSUS",, white)
         y=y+q
       end
-    Graphics.termBlend()
+
     Screen.flip()
 end
 ------------------------------------end
