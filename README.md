@@ -1,3 +1,3 @@
 # World-of-Panda
 
-This is just my random project don't expect anything from it, maybe do tis coming along quite nicely so something good might come from this :)
+Just a random project I have finished has FTP, This was fun in the making but this project is over time to move to the hard core stuff!!
